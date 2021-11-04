@@ -1,0 +1,2781 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/4/2020 11:40:06 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SSE3LD6"
+  DTS:CreatorName="DESKTOP-SSE3LD6\ITD-STU"
+  DTS:DTSID="{6B829978-DB50-4E98-AEE9-F7278614791F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="P01_SCDType2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{ACD9C9B9-065E-4F10-83F2-CE9EA6D9A0BF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C16E28F0-BD70-4316-96C7-CA42195A0C7E}"
+      DTS:ObjectName="DESKTOP-SSE3LD6\SQLEXPRESS.Northwind">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-SSE3LD6\SQLEXPRESS;Initial Catalog=Northwind;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SSIS Slowly Changing Dimension Type 2"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EAC27AB6-B016-4C56-9130-75D961BD8C59}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SSIS Slowly Changing Dimension Type 2"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Inputs[Derived Column Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FirstName"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,10)("Expired")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,10)("Expired")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Inputs[Derived Column Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FirstName"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[FirstName]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,10)("Current")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,10)("Current")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employees]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[TitleOfCourtesy]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="TitleOfCourtesy"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[TitleOfCourtesy]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[TitleOfCourtesy]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[BirthDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BirthDate"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[BirthDate]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[HireDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="HireDate"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HireDate]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[HireDate]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[Address]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Address"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Address]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[City]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PostalCode"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[HomePhone]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="HomePhone"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HomePhone]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[HomePhone]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[Extension]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Extension"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Extension]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Extension]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[Photo]"
+                      cachedDataType="image"
+                      cachedName="Photo"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Photo]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Photo]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[Notes]"
+                      cachedDataType="nText"
+                      cachedName="Notes"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Notes]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Notes]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[ReportsTo]"
+                      cachedDataType="i4"
+                      cachedName="ReportsTo"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReportsTo]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[ReportsTo]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].Columns[PhotoPath]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PhotoPath"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhotoPath]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[PhotoPath]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="20"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="10"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="30"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[TitleOfCourtesy]"
+                      dataType="wstr"
+                      length="25"
+                      name="TitleOfCourtesy" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HireDate]"
+                      dataType="dbTimeStamp"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="15"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HomePhone]"
+                      dataType="wstr"
+                      length="24"
+                      name="HomePhone" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Extension]"
+                      dataType="wstr"
+                      length="4"
+                      name="Extension" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Photo]"
+                      dataType="image"
+                      name="Photo" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Notes]"
+                      dataType="nText"
+                      name="Notes" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReportsTo]"
+                      dataType="i4"
+                      name="ReportsTo" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhotoPath]"
+                      dataType="wstr"
+                      length="255"
+                      name="PhotoPath" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Employees] SET [FirstName] = ? WHERE [Extension] = ? AND [HireDate] = ? AND [FirstName] = 'Current'</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input].Columns[Extension]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Extension"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Extension]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input].Columns[HireDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="HireDate"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="dbTimeStamp"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Employees] SET [Address] = ?,[BirthDate] = ?,[City] = ?,[Country] = ?,[FirstName] = ?,[HomePhone] = ?,[LastName] = ?,[Notes] = ?,[Photo] = ?,[PhotoPath] = ?,[PostalCode] = ?,[Region] = ?,[ReportsTo] = ?,[Title] = ?,[TitleOfCourtesy] = ? WHERE [Extension] = ? AND [HireDate] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Address]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Address"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[BirthDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BirthDate"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[BirthDate]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Extension]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Extension"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Extension]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[HireDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="HireDate"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[HomePhone]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="HomePhone"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HomePhone]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Notes]"
+                      cachedDataType="nText"
+                      cachedName="Notes"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Notes]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Photo]"
+                      cachedDataType="image"
+                      cachedName="Photo"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Photo]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[PhotoPath]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PhotoPath"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhotoPath]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PostalCode"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ReportsTo]"
+                      cachedDataType="i4"
+                      cachedName="ReportsTo"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportsTo]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[TitleOfCourtesy]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="TitleOfCourtesy"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[TitleOfCourtesy]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="60"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="dbTimeStamp"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="wstr"
+                      length="24"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="20"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="nText"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">193</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="image"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">193</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      dataType="i4"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      dataType="wstr"
+                      length="30"
+                      name="Param_13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      dataType="wstr"
+                      length="25"
+                      name="Param_14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      dataType="wstr"
+                      length="4"
+                      name="Param_15">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      dataType="dbTimeStamp"
+                      name="Param_16">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employees]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="20"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="10"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      length="30"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[TitleOfCourtesy]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TitleOfCourtesy]"
+                      length="25"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[TitleOfCourtesy]"
+                      name="TitleOfCourtesy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                      name="BirthDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HireDate]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]"
+                      name="HireDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Address]"
+                      length="60"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]"
+                      name="Address"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="15"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="15"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      length="10"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      name="PostalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      length="15"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HomePhone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HomePhone]"
+                      length="24"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HomePhone]"
+                      name="HomePhone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Extension]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Extension]"
+                      length="4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Extension]"
+                      name="Extension"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Photo]"
+                      dataType="image"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Photo]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Photo]"
+                      name="Photo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Notes]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Notes]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Notes]"
+                      name="Notes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportsTo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReportsTo]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportsTo]"
+                      name="ReportsTo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhotoPath]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhotoPath]"
+                      length="255"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhotoPath]"
+                      name="PhotoPath"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="20"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="10"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="30"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TitleOfCourtesy]"
+                      dataType="wstr"
+                      length="25"
+                      name="TitleOfCourtesy" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HireDate]"
+                      dataType="dbTimeStamp"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="15"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HomePhone]"
+                      dataType="wstr"
+                      length="24"
+                      name="HomePhone" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Extension]"
+                      dataType="wstr"
+                      length="4"
+                      name="Extension" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Photo]"
+                      dataType="image"
+                      name="Photo" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Notes]"
+                      dataType="nText"
+                      name="Notes" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReportsTo]"
+                      dataType="i4"
+                      name="ReportsTo" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhotoPath]"
+                      dataType="wstr"
+                      length="255"
+                      name="PhotoPath" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TitleOfCourtesy]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TitleOfCourtesy]"
+                      name="TitleOfCourtesy" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                      name="BirthDate" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HireDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HireDate]"
+                      name="HireDate" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Address]"
+                      name="Address" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      name="PostalCode" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HomePhone]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HomePhone]"
+                      name="HomePhone" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Extension]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Extension]"
+                      name="Extension" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Photo]"
+                      dataType="image"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Photo]"
+                      name="Photo" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Notes]"
+                      dataType="nText"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Notes]"
+                      name="Notes" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReportsTo]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReportsTo]"
+                      name="ReportsTo" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhotoPath]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhotoPath]"
+                      name="PhotoPath" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Extension], [FirstName], [HireDate], [Title] FROM [dbo].[Employees]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere">[FirstName] = 'Current'</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SSE3LD6\SQLEXPRESS.Northwind]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Extension]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Extension"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Extension]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Extension]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[HireDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="HireDate"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[HireDate]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Title]"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Extension]"
+                      dataType="wstr"
+                      length="4"
+                      name="Extension" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="10"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[HireDate]"
+                      dataType="dbTimeStamp"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="30"
+                      name="Title" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SSIS Slowly Changing Dimension Type 2\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[EmployeeID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="LastName"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FirstName"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Title"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Title]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[TitleOfCourtesy]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="TitleOfCourtesy"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[TitleOfCourtesy]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[TitleOfCourtesy]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[BirthDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BirthDate"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[BirthDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[BirthDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[HireDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="HireDate"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[HireDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[Address]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Address"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Address]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="City"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[City]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Region"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PostalCode"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[PostalCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Country"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[HomePhone]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="HomePhone"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HomePhone]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[HomePhone]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[Extension]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Extension"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Extension]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Extension]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[Photo]"
+                      cachedDataType="image"
+                      cachedName="Photo"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Photo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Photo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[Notes]"
+                      cachedDataType="nText"
+                      cachedName="Notes"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Notes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Notes]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[ReportsTo]"
+                      cachedDataType="i4"
+                      cachedName="ReportsTo"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportsTo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[ReportsTo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1].Columns[PhotoPath]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PhotoPath"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhotoPath]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[PhotoPath]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[EmployeeID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="LastName"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FirstName"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Title"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Title]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[TitleOfCourtesy]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="TitleOfCourtesy"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[TitleOfCourtesy]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[TitleOfCourtesy]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[BirthDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BirthDate"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[BirthDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[BirthDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[HireDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="HireDate"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[HireDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[Address]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Address"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Address]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="City"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[City]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Region"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PostalCode"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[PostalCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Country"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[HomePhone]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="HomePhone"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[HomePhone]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[HomePhone]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[Extension]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Extension"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Extension]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Extension]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[Photo]"
+                      cachedDataType="image"
+                      cachedName="Photo"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Photo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Photo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[Notes]"
+                      cachedDataType="nText"
+                      cachedName="Notes"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[Notes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Notes]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[ReportsTo]"
+                      cachedDataType="i4"
+                      cachedName="ReportsTo"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportsTo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[ReportsTo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2].Columns[PhotoPath]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PhotoPath"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhotoPath]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[PhotoPath]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[EmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[LastName]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[FirstName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Title]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[TitleOfCourtesy]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[TitleOfCourtesy]"
+                      name="TitleOfCourtesy" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[BirthDate]"
+                      name="BirthDate" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[HireDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[HireDate]"
+                      name="HireDate" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Address]"
+                      name="Address" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[City]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[PostalCode]"
+                      name="PostalCode" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[HomePhone]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[HomePhone]"
+                      name="HomePhone" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Extension]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Extension]"
+                      name="Extension" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Photo]"
+                      dataType="image"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Photo]"
+                      name="Photo" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Notes]"
+                      dataType="nText"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[Notes]"
+                      name="Notes" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[ReportsTo]"
+                      dataType="i4"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[ReportsTo]"
+                      name="ReportsTo" />
+                    <outputColumn
+                      refId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[PhotoPath]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1].Columns[PhotoPath]"
+                      name="PhotoPath" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SSIS Slowly Changing Dimension Type 2.Paths[Derived Column Output]"
+              endId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\SSIS Slowly Changing Dimension Type 2.Paths[Derived Column Output1]"
+              endId="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\SSIS Slowly Changing Dimension Type 2.Paths[Historical Attribute Inserts Output]"
+              endId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column.Inputs[Derived Column Input]"
+              name="Historical Attribute Inserts Output"
+              startId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+            <path
+              refId="Package\SSIS Slowly Changing Dimension Type 2.Paths[Inferred Member Updates Output]"
+              endId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]" />
+            <path
+              refId="Package\SSIS Slowly Changing Dimension Type 2.Paths[New Output]"
+              endId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 1]"
+              name="New Output"
+              startId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\SSIS Slowly Changing Dimension Type 2.Paths[OLE DB Command Output]"
+              endId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Command Output"
+              startId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\SSIS Slowly Changing Dimension Type 2.Paths[OLE DB Source Output]"
+              endId="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\SSIS Slowly Changing Dimension Type 2.Paths[Union All Output 1]"
+              endId="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\SSIS Slowly Changing Dimension Type 2\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="270.666666666667,42.6666666666667"
+          Id="Package\SSIS Slowly Changing Dimension Type 2"
+          TopLeft="71.6666655987501,58.0666656283538" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SSIS Slowly Changing Dimension Type 2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source"
+          TopLeft="157.5,5.49999999999993" />
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension"
+          TopLeft="128.166666666667,108.166666666666" />
+        <EdgeLayout
+          Id="Package\SSIS Slowly Changing Dimension Type 2.Paths[OLE DB Source Output]"
+          TopLeft="232.833333333333,48.1666666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\SSIS Slowly Changing Dimension Type 2\Derived Column"
+          TopLeft="17.5,210.833333333333" />
+        <EdgeLayout
+          Id="Package\SSIS Slowly Changing Dimension Type 2.Paths[Historical Attribute Inserts Output]"
+          TopLeft="182.5,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-87.6666666666667,59.9999999999999"
+              Start="0,0"
+              End="-87.6666666666667,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503144654088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503144654088"
+                    Point2="0,20.503144654088"
+                    Point3="-4,20.503144654088" />
+                  <mssgle:LineSegment
+                    End="-83.6666666666667,20.503144654088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-83.6666666666667,20.503144654088"
+                    Point2="-87.6666666666667,20.503144654088"
+                    Point3="-87.6666666666667,24.503144654088" />
+                  <mssgle:LineSegment
+                    End="-87.6666666666667,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.889720052083,25.503144654088,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command"
+          TopLeft="5.50000000000004,313.5" />
+        <EdgeLayout
+          Id="Package\SSIS Slowly Changing Dimension Type 2.Paths[Derived Column Output]"
+          TopLeft="91.8333333333334,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\SSIS Slowly Changing Dimension Type 2\Union All"
+          TopLeft="172.166666666667,416.166666666667" />
+        <EdgeLayout
+          Id="Package\SSIS Slowly Changing Dimension Type 2.Paths[New Output]"
+          TopLeft="232.833333333333,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.8888888888889,265.333333333333"
+              Start="0,0"
+              End="18.8888888888889,257.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,153.127982646421" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,153.127982646421"
+                    Point2="0,157.127982646421"
+                    Point3="4,157.127982646421" />
+                  <mssgle:LineSegment
+                    End="14.8888888888889,157.127982646421" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.8888888888889,157.127982646421"
+                    Point2="18.8888888888889,157.127982646421"
+                    Point3="18.8888888888889,161.127982646421" />
+                  <mssgle:LineSegment
+                    End="18.8888888888889,257.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.6469422743055,162.127982646421,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SSIS Slowly Changing Dimension Type 2.Paths[OLE DB Command Output]"
+          TopLeft="88.8333333333334,356.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.111111111111,60.0000000000001"
+              Start="0,0"
+              End="125.111111111111,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.531453362256" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.531453362256"
+                    Point2="0,35.531453362256"
+                    Point3="4,35.531453362256" />
+                  <mssgle:LineSegment
+                    End="121.111111111111,35.531453362256" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.111111111111,35.531453362256"
+                    Point2="125.111111111111,35.531453362256"
+                    Point3="125.111111111111,39.531453362256" />
+                  <mssgle:LineSegment
+                    End="125.111111111111,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\SSIS Slowly Changing Dimension Type 2\Derived Column 1"
+          TopLeft="150.833333333333,518.833333333333" />
+        <EdgeLayout
+          Id="Package\SSIS Slowly Changing Dimension Type 2.Paths[Union All Output 1]"
+          TopLeft="232.833333333333,458.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination"
+          TopLeft="150.833333333333,621.5" />
+        <EdgeLayout
+          Id="Package\SSIS Slowly Changing Dimension Type 2.Paths[Derived Column Output1]"
+          TopLeft="232.833333333333,561.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,42.6666666666667"
+          Id="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Command 1"
+          TopLeft="293.833333333333,210.833333333333" />
+        <EdgeLayout
+          Id="Package\SSIS Slowly Changing Dimension Type 2.Paths[Inferred Member Updates Output]"
+          TopLeft="283.166666666667,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.6666666666667,59.9999999999999"
+              Start="0,0"
+              End="98.6666666666667,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503144654088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503144654088"
+                    Point2="0,20.503144654088"
+                    Point3="4,20.503144654088" />
+                  <mssgle:LineSegment
+                    End="94.6666666666667,20.503144654088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.6666666666667,20.503144654088"
+                    Point2="98.6666666666667,20.503144654088"
+                    Point3="98.6666666666667,24.503144654088" />
+                  <mssgle:LineSegment
+                    End="98.6666666666667,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.0696549479167,25.503144654088,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SSIS Slowly Changing Dimension Type 2\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SSIS Slowly Changing Dimension Type 2\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{C16E28F0-BD70-4316-96C7-CA42195A0C7E}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Employees]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Address&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[BirthDate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;BirthDate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[City]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;City&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Country&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Extension]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Extension&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FirstName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;HireDate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[HomePhone]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;HomePhone&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;LastName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Notes]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Notes&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Photo]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Photo&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[PhotoPath]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PhotoPath&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PostalCode&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Region&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportsTo]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ReportsTo&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Title&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[TitleOfCourtesy]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;TitleOfCourtesy&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn&gt;FirstName&lt;/CurrentIndicatorColumn&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent&gt;Current&lt;/ValueCurrent&gt;
+  &lt;ValueExpired&gt;Expired&lt;/ValueExpired&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SSIS Slowly Changing Dimension Type 2\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
